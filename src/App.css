@@ -1,0 +1,1126 @@
+/* ================================
+   MAIN APP
+================================ */
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  height: 100vh;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 12px 15px;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      #182d38 0%,
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 100% 100%,
+      #17253c 0%,
+      transparent 42%
+    ),
+    #05090d;
+
+  color: #f3f7f8;
+}
+
+.app-content {
+  width: 100%;
+  max-width: 480px;
+
+  max-height: 96vh;
+
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* ================================
+   AURORA LIGHTS
+================================ */
+
+.aurora {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  opacity: 0.18;
+
+  pointer-events: none;
+}
+
+.aurora-one {
+  background: #00d9c0;
+
+  top: -230px;
+  left: -170px;
+}
+
+.aurora-two {
+  background: #7b61ff;
+
+  bottom: -250px;
+  right: -170px;
+}
+
+
+/* ================================
+   MAIN TITLE
+================================ */
+
+.main-title {
+  margin: 5px 0 4px;
+
+  text-align: center;
+
+  font-size: clamp(25px, 5vw, 36px);
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.main-title span {
+  background: linear-gradient(
+    100deg,
+    #ffffff,
+    #8bf8e4,
+    #b5a4ff
+  );
+
+  background-clip: text;
+  color: transparent;
+}
+
+.main-subtitle {
+  margin: 0 0 10px;
+
+  text-align: center;
+
+  color: #81949c;
+
+  font-size: 10px;
+}
+
+
+/* ================================
+   GLASS CARD
+================================ */
+
+.otp-card,
+.verified-card {
+  position: relative;
+
+  width: 100%;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(27, 42, 46, 0.88),
+      rgba(10, 17, 21, 0.94)
+    );
+
+  border:
+    1px solid rgba(150, 220, 215, 0.16);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(0, 217, 192, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  text-align: left;
+}
+
+
+/* ================================
+   TOP NEON LINE
+================================ */
+
+.otp-card::before,
+.verified-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 12%;
+  right: 12%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #5effd6,
+      #a99aff,
+      transparent
+    );
+
+  box-shadow:
+    0 0 15px rgba(94, 255, 214, 0.6);
+}
+
+
+/* ================================
+   CARD TOP
+================================ */
+
+.card-top {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 10px;
+
+  padding-bottom: 12px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+.brand-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  color: #5effd6;
+
+  background:
+    rgba(94, 255, 214, 0.08);
+
+  border:
+    1px solid rgba(94, 255, 214, 0.25);
+
+  box-shadow:
+    0 0 18px rgba(94, 255, 214, 0.12),
+    inset 0 0 12px rgba(94, 255, 214, 0.05);
+}
+
+.brand-area h3 {
+  margin: 0;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+}
+
+.brand-area p {
+  margin: 3px 0 0;
+
+  color: #687d85;
+
+  font-size: 7px;
+
+  letter-spacing: 1.2px;
+}
+
+
+/* HIDE SECURE BADGE */
+
+.secure-badge {
+  display: none !important;
+}
+
+
+/* ================================
+   HEADING
+================================ */
+
+.card-heading {
+  padding: 13px 0 11px;
+}
+
+.section-number {
+  color: #5effd6;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  font-weight: 800;
+
+  margin-bottom: 6px;
+}
+
+.card-heading h2 {
+  margin: 0 0 5px;
+
+  font-size: 19px;
+
+  letter-spacing: -0.6px;
+}
+
+.card-heading > p:last-child {
+  color: #82969e;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  margin: 0;
+}
+
+.card-heading strong {
+  color: #c4d3d7;
+}
+
+
+/* ================================
+   OTP INPUT
+================================ */
+
+.otp-input-wrapper {
+  margin-bottom: 12px;
+}
+
+.otp-boxes {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 7px;
+
+  margin: 0 auto;
+}
+
+
+/* ================================
+   NEXORA CIRCULAR OTP BOX
+================================ */
+
+.otp-box {
+  width: 32px;
+  height: 32px;
+
+  flex: 0 0 32px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(94, 255, 214, 0.12) 0%,
+      #071215 68%
+    );
+
+  border:
+    1px solid rgba(94, 255, 214, 0.35);
+
+  color: #dffff8;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  outline: none;
+
+  text-align: center;
+
+  box-shadow:
+    0 0 4px rgba(94, 255, 214, 0.22),
+    inset 0 0 7px rgba(94, 255, 214, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  z-index: 1;
+}
+
+
+/* ================================
+   AUTOMATIC ROTATING NEON RING
+================================ */
+
+.otp-box::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -4px;
+
+  border-radius: 50%;
+
+  border: 1px solid transparent;
+
+  border-top-color: #5effd6;
+
+  border-right-color:
+    rgba(94, 255, 214, 0.45);
+
+  filter:
+    drop-shadow(0 0 4px #5effd6);
+
+  animation:
+    nexoraSpin 2s linear infinite;
+
+  pointer-events: none;
+}
+
+
+/* ================================
+   AUTOMATIC OUTER GLOW
+================================ */
+
+.otp-box::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -7px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(94, 255, 214, 0.08);
+
+  filter: blur(7px);
+
+  opacity: 0.45;
+
+  animation:
+    nexoraPulse 1.8s ease-in-out infinite;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* ================================
+   ACTIVE OTP
+================================ */
+
+.otp-box.active {
+  color: #ffffff;
+
+  border-color: #5effd6;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(94, 255, 214, 0.28) 0%,
+      rgba(8, 30, 29, 0.95) 65%,
+      #050c0f 100%
+    );
+
+  box-shadow:
+    0 0 4px #5effd6,
+    0 0 10px rgba(94, 255, 214, 0.85),
+    0 0 20px rgba(94, 255, 214, 0.45),
+    inset 0 0 9px rgba(94, 255, 214, 0.22);
+
+  text-shadow:
+    0 0 5px #5effd6,
+    0 0 12px rgba(94, 255, 214, 0.8);
+
+  transform: scale(1.05);
+}
+
+
+/* ================================
+   HOVER
+================================ */
+
+.otp-box:hover {
+  border-color: #5effd6;
+
+  box-shadow:
+    0 0 5px #5effd6,
+    0 0 12px rgba(94, 255, 214, 0.5),
+    inset 0 0 8px rgba(94, 255, 214, 0.1);
+
+  transform: scale(1.05);
+}
+
+
+/* ================================
+   REMOVE OLD DOTS
+================================ */
+
+.empty-dot {
+  display: none !important;
+}
+
+
+/* ================================
+   OTP STATUS
+================================ */
+
+.otp-status {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 7px;
+
+  color: #536a73;
+
+  font-size: 7px;
+
+  letter-spacing: 1.2px;
+
+  font-weight: 800;
+}
+
+.status-active {
+  color: #5effd6;
+
+  text-shadow:
+    0 0 8px rgba(94, 255, 214, 0.5);
+}
+
+
+/* ================================
+   MESSAGE BOX
+================================ */
+
+.code-message {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+.message-content {
+  min-width: 0;
+}
+
+.message-label {
+  color: #b5a4ff;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.message-content p {
+  color: #8399a2;
+
+  font-size: 8px;
+
+  line-height: 1.5;
+
+  margin: 4px 0 0;
+
+  word-break: break-word;
+}
+
+
+/* ================================
+   GET OTP BUTTON
+================================ */
+
+.generate-btn {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 9px 11px;
+
+  border:
+    1px solid rgba(255, 210, 112, 0.5);
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffd778,
+      #d8a83e
+    );
+
+  color: #17130a;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 6px rgba(255, 205, 93, 0.7),
+    0 0 16px rgba(255, 205, 93, 0.35);
+
+  transition: 0.3s ease;
+}
+
+.generate-btn:hover {
+  box-shadow:
+    0 0 10px rgba(255, 205, 93, 0.9),
+    0 0 22px rgba(255, 205, 93, 0.6);
+}
+
+
+/* ================================
+   VERIFY BUTTON
+================================ */
+
+.verify-btn {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 10px;
+
+  padding: 11px;
+
+  border-radius: 9px;
+
+  border:
+    1px solid rgba(94, 255, 214, 0.4);
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(94, 255, 214, 0.12),
+      rgba(169, 154, 255, 0.12)
+    );
+
+  color: #cffff5;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 12px rgba(94, 255, 214, 0.12);
+
+  transition: 0.3s ease;
+}
+
+.verify-btn:hover:not(:disabled) {
+  box-shadow:
+    0 0 10px rgba(94, 255, 214, 0.5),
+    0 0 25px rgba(94, 255, 214, 0.25);
+}
+
+.verify-btn:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+
+/* ================================
+   CARD BOTTOM
+================================ */
+
+.card-bottom {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 10px;
+
+  color: #526a73;
+
+  font-size: 7px;
+}
+
+
+/* ================================
+   HIDE SESSION TEXT
+================================ */
+
+/*
+   If your JSX contains:
+   "Your code is valid for the session only"
+   this hides the usual bottom/session text.
+*/
+
+.card-bottom {
+  display: none;
+}
+
+
+/* ================================
+   VERIFIED CARD
+================================ */
+
+.verified-card {
+  text-align: center;
+
+  padding: 30px 20px;
+}
+
+.success-ring {
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #5effd6;
+
+  background:
+    rgba(94, 255, 214, 0.07);
+
+  border:
+    1px solid #5effd6;
+
+  box-shadow:
+    0 0 10px rgba(94, 255, 214, 0.8),
+    0 0 30px rgba(94, 255, 214, 0.35),
+    0 0 65px rgba(94, 255, 214, 0.15),
+    inset 0 0 25px rgba(94, 255, 214, 0.08);
+}
+
+.verified-label {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  color: #5effd6;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+.verified-card h2 {
+  margin: 12px 0 7px;
+
+  font-size: 22px;
+}
+
+.verified-card > p {
+  color: #82969e;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+
+  max-width: 300px;
+
+  margin: auto;
+}
+
+.verified-line {
+  width: 70px;
+  height: 1px;
+
+  margin: 16px auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #5effd6,
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px #5effd6;
+}
+
+
+/* ================================
+   CONTINUE BUTTON
+================================ */
+
+.continue-btn {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 11px;
+
+  border-radius: 9px;
+
+  border:
+    1px solid #5effd6;
+
+  background:
+    rgba(94, 255, 214, 0.09);
+
+  color: #5effd6;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 10px rgba(94, 255, 214, 0.3);
+
+  transition: 0.3s ease;
+}
+
+.continue-btn:hover {
+  box-shadow:
+    0 0 12px rgba(94, 255, 214, 0.7),
+    0 0 30px rgba(94, 255, 214, 0.3);
+}
+
+
+/* ================================
+   BACK BUTTON
+================================ */
+
+.back-btn {
+  margin-top: 12px;
+
+  background: transparent;
+
+  border: none;
+
+  color: #718890;
+
+  font-size: 9px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  color: #5effd6;
+
+  text-shadow:
+    0 0 8px rgba(94, 255, 214, 0.5);
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer-text {
+  margin-top: 10px;
+
+  color: #40555d;
+
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+}
+
+.footer-text span {
+  color: #68858d;
+}
+
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes nexoraSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nexoraPulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.65;
+  }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 500px) {
+
+  .app {
+    padding: 8px;
+  }
+
+  .app-content {
+    width: 94vw;
+    max-width: 94vw;
+
+    max-height: 97vh;
+  }
+
+  .main-title {
+    font-size: 24px;
+
+    margin: 3px 0;
+  }
+
+  .main-subtitle {
+    font-size: 8px;
+
+    margin-bottom: 7px;
+  }
+
+  .otp-card,
+  .verified-card {
+    padding: 14px;
+
+    border-radius: 15px;
+  }
+
+  .card-top {
+    padding-bottom: 9px;
+  }
+
+  .brand-icon {
+    width: 29px;
+    height: 29px;
+
+    border-radius: 8px;
+  }
+
+  .brand-area {
+    gap: 7px;
+  }
+
+  .brand-area h3 {
+    font-size: 10px;
+  }
+
+  .brand-area p {
+    font-size: 6px;
+  }
+
+  .card-heading {
+    padding: 10px 0 8px;
+  }
+
+  .section-number {
+    margin-bottom: 5px;
+  }
+
+  .card-heading h2 {
+    font-size: 16px;
+  }
+
+  .card-heading > p:last-child {
+    font-size: 8px;
+  }
+
+  .otp-input-wrapper {
+    margin-bottom: 9px;
+  }
+
+  .otp-boxes {
+    gap: 5px;
+  }
+
+  .otp-box {
+    width: 28px;
+    height: 28px;
+
+    flex-basis: 28px;
+
+    font-size: 11px;
+  }
+
+  .otp-box::before {
+    inset: -3px;
+  }
+
+  .otp-box::after {
+    inset: -5px;
+  }
+
+  .otp-status {
+    margin-top: 5px;
+    font-size: 6px;
+  }
+
+  .code-message {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .message-label {
+    font-size: 6px;
+  }
+
+  .message-content p {
+    font-size: 7px;
+  }
+
+  .generate-btn {
+    padding: 8px;
+    font-size: 7px;
+  }
+
+  .verify-btn {
+    margin-top: 7px;
+    padding: 9px;
+    font-size: 9px;
+  }
+
+  .footer-text {
+    display: none;
+  }
+
+  .verified-card {
+    padding: 25px 16px;
+  }
+}
+
+
+/* ================================
+   VERY SHORT SCREENS
+================================ */
+
+@media (max-height: 650px) {
+
+  .app {
+    padding: 5px;
+  }
+
+  .main-title {
+    font-size: 22px;
+    margin: 2px 0;
+  }
+
+  .main-subtitle {
+    display: none;
+  }
+
+  .otp-card {
+    padding: 12px;
+  }
+
+  .card-heading {
+    padding: 8px 0 7px;
+  }
+
+  .card-heading h2 {
+    font-size: 15px;
+  }
+
+  .card-heading > p:last-child {
+    font-size: 7px;
+  }
+
+  .otp-box {
+    width: 26px;
+    height: 26px;
+    flex-basis: 26px;
+    font-size: 10px;
+  }
+
+  .code-message {
+    padding: 7px;
+  }
+
+  .verify-btn {
+    padding: 8px;
+  }
+}
