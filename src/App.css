@@ -118,6 +118,8 @@ body,
   );
 
   background-clip: text;
+  -webkit-background-clip: text;
+
   color: transparent;
 }
 
@@ -267,7 +269,9 @@ body,
 }
 
 
-/* HIDE SECURE BADGE */
+/* ================================
+   HIDE SECURE BADGE
+================================ */
 
 .secure-badge {
   display: none !important;
@@ -334,6 +338,32 @@ body,
   gap: 7px;
 
   margin: 0 auto;
+}
+
+
+/* ================================
+   OTP BLUE / CYAN GRADIENT LINE
+================================ */
+
+.otp-blue-line {
+  width: 90px;
+  height: 2px;
+
+  margin: 7px auto 0;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #5effd6,
+      #7cefff,
+      #a99aff
+    );
+
+  box-shadow:
+    0 0 6px rgba(94, 255, 214, 0.7),
+    0 0 12px rgba(169, 154, 255, 0.4);
 }
 
 
@@ -714,12 +744,6 @@ body,
    HIDE SESSION TEXT
 ================================ */
 
-/*
-   If your JSX contains:
-   "Your code is valid for the session only"
-   this hides the usual bottom/session text.
-*/
-
 .card-bottom {
   display: none;
 }
@@ -1035,13 +1059,24 @@ body,
     inset: -5px;
   }
 
+  /* MOBILE OTP LINE */
+
+  .otp-blue-line {
+    width: 75px;
+    height: 2px;
+
+    margin-top: 6px;
+  }
+
   .otp-status {
     margin-top: 5px;
+
     font-size: 6px;
   }
 
   .code-message {
     padding: 8px;
+
     gap: 6px;
   }
 
@@ -1055,12 +1090,15 @@ body,
 
   .generate-btn {
     padding: 8px;
+
     font-size: 7px;
   }
 
   .verify-btn {
     margin-top: 7px;
+
     padding: 9px;
+
     font-size: 9px;
   }
 
@@ -1086,6 +1124,7 @@ body,
 
   .main-title {
     font-size: 22px;
+
     margin: 2px 0;
   }
 
@@ -1112,7 +1151,9 @@ body,
   .otp-box {
     width: 26px;
     height: 26px;
+
     flex-basis: 26px;
+
     font-size: 10px;
   }
 

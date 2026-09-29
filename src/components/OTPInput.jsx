@@ -4,10 +4,9 @@ function OTPInput({ otp }) {
   return (
     <div className="otp-input-wrapper">
 
+      {/* OTP BOXES */}
       <div className="otp-boxes">
-
         {[0, 1, 2, 3].map((index) => (
-
           <motion.div
             key={index}
             className={`otp-box ${otp[index] ? "active" : ""}`}
@@ -24,11 +23,13 @@ function OTPInput({ otp }) {
               <span className="empty-dot">•</span>
             )}
           </motion.div>
-
         ))}
-
       </div>
 
+      {/* BLUE / CYAN GRADIENT LINE */}
+      <div className="otp-blue-line"></div>
+
+      {/* OTP STATUS */}
       <div className="otp-status">
         <span className={otp ? "status-active" : ""}>
           {otp ? "CODE GENERATED" : "AWAITING CODE"}

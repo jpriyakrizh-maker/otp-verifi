@@ -17,6 +17,11 @@ function App() {
 
     setOtp(newOtp);
     setIsVerified(false);
+    
+
+  setTimeout(() => {
+    setIsVerified(true);
+  },1000);
   };
 
   const verifyOTP = () => {
